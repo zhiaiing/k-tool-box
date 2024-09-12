@@ -1,0 +1,57 @@
+{
+  "name": "k-tool-box",
+  "description": "Common Utils For React Component",
+  "version": "0.0.1",
+  "keywords": [
+    "react",
+    "util"
+  ],
+  "homepage": "https://github.com/zhiaiing/k-tool-box",
+  "author": {
+    "name": "kang"
+  },
+  "main": "dist/cjs/index.js",
+  "module": "dist/es/index.js",
+  "license": "MIT",
+  "devDependencies": {
+    "@babel/core": "^7.25.2",
+    "@babel/plugin-transform-runtime": "^7.25.4",
+    "@babel/preset-env": "^7.25.4",
+    "@rollup/plugin-babel": "^6.0.4",
+    "@rollup/plugin-commonjs": "^26.0.1",
+    "@rollup/plugin-node-resolve": "^15.2.3",
+    "@rollup/plugin-typescript": "^11.1.6",
+    "@types/lodash-es": "^4.17.12",
+    "@types/react": "^18.3.5",
+    "@types/react-dom": "^18.3.0",
+    "core-js": "^3.38.1",
+    "father": "^4.5.0",
+    "postcss": "^8.4.45",
+    "rollup": "^4.21.2",
+    "rollup-plugin-dts": "^6.1.1",
+    "rollup-plugin-postcss": "^4.0.2",
+    "tslib": "^2.7.0",
+    "typescript": "^5.6.2"
+  },
+  "engines": {
+    "node": ">=16"
+  },
+  "scripts": {
+    "build": "father build",
+    "build1": "rollup -c",
+    "build:watch": "rollup -c -w"
+  },
+  "peerDependencies": {
+    "react": ">=16.9.0",
+    "react-dom": ">=16.9.0",
+    "lodash-es": ">4.0.0"
+  },
+  "dependencies": {
+    "lodash-es": "^4.17.21",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "files": [
+    "dist"
+  ]
+}
