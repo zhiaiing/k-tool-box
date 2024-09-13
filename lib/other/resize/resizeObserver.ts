@@ -74,7 +74,9 @@ class ResizeObserverClass {
                     height: entry.target.offsetHeight,
                 };
 
-                needTrigger && this.triggerCallback(entry.target);
+                if (needTrigger) {
+                  this.triggerCallback(entry.target);
+                }
             }
         });
     };

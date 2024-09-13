@@ -1,7 +1,7 @@
 {
   "name": "k-tools-box",
   "description": "Common Utils For React Component",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "keywords": [
     "react",
     "util"
@@ -19,7 +19,8 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "father build",
+    "build": "TS_NODE_PROJECT=tsconfig.lib.json father build && yarn run buildDeclaration",
+    "buildDeclaration": "tsc -p ./tsconfig.lib.json --emitDeclarationOnly --outDir ./dist/cjs && tsc -p ./tsconfig.lib.json --emitDeclarationOnly --outDir ./dist/esm",
     "build1": "tsc -b && vite build",
     "lint": "eslint .",
     "preview": "vite preview"
@@ -73,6 +74,11 @@
     "core-js": "^3.38.1",
     "father": "^4.5.0",
     "tslib": "^2.7.0"
+  },
+  "peerDependencies": {
+    "react": ">=16.9.0",
+    "react-dom": ">=16.9.0",
+    "lodash-es": ">4.0.0"
   },
   "files": [
     "dist"
