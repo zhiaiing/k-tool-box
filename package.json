@@ -1,7 +1,7 @@
 {
-  "name": "k-tool-box",
+  "name": "k-tools-box",
   "description": "Common Utils For React Component",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "keywords": [
     "react",
     "util"

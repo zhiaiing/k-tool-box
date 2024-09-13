@@ -1,14 +1,14 @@
 import resizeElement, { ResizeElementOptionInterface, SizeFnType } from "../other/resize/resizeManage";
 import React from "react";
 
-const useResize = (element: HTMLElement, cb: SizeFnType, options?: ResizeElementOptionInterface) => {
+const useResize = (target: HTMLElement | { current?: HTMLElement }, cb: SizeFnType, options?: ResizeElementOptionInterface) => {
 
     const unResizeRef = React.useRef<() => void>(null);
 
-    React.useCallback(() => {
-        if (element) {
-            unResizeRef.current = resizeElement(element, cb, options);
-            return unResizeRef.current;
+    React.useLayoutEffect(() => {
+        const targetEl = (target && 'current' in target ? target.current : target) as HTMLElement;
+        if (targetEl) {
+            unResizeRef.current = resizeElement(targetEl, cb, options);
         }
         return () => {
             if (unResizeRef.current) {
@@ -16,7 +16,7 @@ const useResize = (element: HTMLElement, cb: SizeFnType, options?: ResizeElement
                 unResizeRef.current = null;
             }
         };
-    }, [element]);
+    }, [target, cb, options]);
 
 
     React.useEffect(() => {
