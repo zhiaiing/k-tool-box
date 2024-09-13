@@ -1,15 +1,7 @@
 {
-    "compilerOptions": {
-      "rootDir": "./src",
-      "baseUrl": "./",
-    //   "jsx": "react-jsx",
-      "declaration": true,
-      "outDir": "./dist/types",
-      "lib": [
-        "es2020",
-        "DOM"
-      ],
-      "allowSyntheticDefaultImports": true,
-    },
-    "include": ["src"]
-  }
+  "files": [],
+  "references": [
+    { "path": "./tsconfig.app.json" },
+    { "path": "./tsconfig.node.json" }
+  ]
+}

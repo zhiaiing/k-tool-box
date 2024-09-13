@@ -16,6 +16,7 @@ interface ResizeElementOptionInterface {
     leading?: boolean;
     trailing?: boolean;
     maxWait?: number;
+    immediate?: boolean;
 }
 
 const isHTMLElement = (obj: any) => {
@@ -30,14 +31,14 @@ const isHTMLElement = (obj: any) => {
 
 
 
-const getNewCallback = function (cb: SizeFnType, options: ResizeElementOptionInterface = { debounceTime: 300 }) {
+const getNewCallback = function (cb: SizeFnType, options: ResizeElementOptionInterface) {
     if (typeof cb !== 'function') {
         throw new Error('callback is not function');
     }
 
     return debounce(cb, options.debounceTime, {
         leading: options.leading ?? false,
-        trailing: options.trailing ?? false,
+        trailing: options.trailing ?? true,
         maxWait: options.maxWait,
     });
 };
@@ -45,7 +46,7 @@ const getNewCallback = function (cb: SizeFnType, options: ResizeElementOptionInt
 const resizeElement = function (
     element: HTMLElement | null,
     callback: SizeFnType,
-    options: OptionTypes = { debounceTime: 300 },
+    options: OptionTypes = { debounceTime: 300, immediate: true },
 ) {
     if (!element || !isHTMLElement(element)) {
         throw new Error('element is not HTMLElement');
