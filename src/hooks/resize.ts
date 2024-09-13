@@ -1,7 +1,7 @@
 import resizeElement, { ResizeElementOptionInterface, SizeFnType } from "../other/resize/resizeManage";
 import React from "react";
 
-const useResize = (target: HTMLElement | { current?: HTMLElement }, cb: SizeFnType, options?: ResizeElementOptionInterface) => {
+const useResize = (target: HTMLElement | React.RefObject<any>, cb: SizeFnType, options?: ResizeElementOptionInterface) => {
 
     const unResizeRef = React.useRef<() => void>(null);
 
